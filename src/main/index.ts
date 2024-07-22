@@ -3,11 +3,12 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import { DataSource } from "typeorm";
-import { Products } from "./salesTransaction/models/products.model";
-import { Categories } from "./salesTransaction/models/categories.model";
+
+import { AppDataSource, initializeDatabase } from "./db/dbconnection";
+import { ProductService } from "./salesTransaction/services/Products.service";
 
 function createWindow(): void {
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
@@ -17,7 +18,8 @@ function createWindow(): void {
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+      contextIsolation:true
     }
   })
 
@@ -42,20 +44,13 @@ function createWindow(): void {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(() => {
-  const AppDataSource = new DataSource({
-    type: "sqlite",
-    database: "database.sqlite",
-    entities: [Products,Categories],
-    synchronize: true,
-    logging: false,
-});
+app.whenReady().then( async () => {
+  await initializeDatabase()
+  //instance class
+  const productService = new ProductService()
+  
 
-AppDataSource.initialize().then(() => {
-  console.log("Connection to SQLite3 established successfully");
 
-  // Aquí puedes empezar a usar tus repositorios, ejecutar consultas, etc.
-}).catch(error => console.log(error));
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.electron')
 
@@ -68,7 +63,9 @@ AppDataSource.initialize().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
-
+  ipcMain.handle('getProductByCodeBar',async (e,id) =>{
+  return  await  productService.getProduct(id)
+  } )
   createWindow()
 
   app.on('activate', function () {

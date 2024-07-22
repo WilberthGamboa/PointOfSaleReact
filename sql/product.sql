@@ -3,7 +3,7 @@ INSERT INTO
     productname,
     barcode,
     price,
-    categoriaId,
+    categoryId,
     createdAt,
     updatedAt
   )
