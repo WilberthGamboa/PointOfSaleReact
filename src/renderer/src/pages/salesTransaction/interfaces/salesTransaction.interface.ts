@@ -14,3 +14,7 @@ export interface Category {
     createdAt:    Date;
     updatedAt:    Date;
 }
+
+export interface GroupedProduct extends Product {
+    count: number;
+}
