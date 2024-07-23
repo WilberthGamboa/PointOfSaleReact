@@ -8,8 +8,6 @@ import { DataTableProductsSearched } from './DataTableProductsSearched';
 interface Props {
     setproductToSell: Dispatch<SetStateAction<Product[]>>
 }
-
-
 export const SearchProducts: React.FC<Props> = ({setproductToSell}) => {
     const [query, setQuery] = useState<string>('');
     const [options, setoptions] = useState<Product[]> ([])

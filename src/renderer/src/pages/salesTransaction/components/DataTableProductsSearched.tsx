@@ -5,10 +5,11 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Product } from "../interfaces/salesTransaction.interface";
 
 interface Props {
-    options: any[],
+    options: Product[],
     setproductToSell: Dispatch<SetStateAction<Product[]>>
 
 }
+
 export const DataTableProductsSearched: React.FC<Props> = ({ options, setproductToSell }) => {
     const [visible, setVisible] = useState<boolean>(false);
     const [selectedProduct, setSelectedProduct] = useState<any>();
@@ -17,8 +18,6 @@ export const DataTableProductsSearched: React.FC<Props> = ({ options, setproduct
         if (options.length > 1) {
             setVisible(true)
         }
-
-
     }, [options])
 
     return (
@@ -30,10 +29,8 @@ export const DataTableProductsSearched: React.FC<Props> = ({ options, setproduct
                     setproductToSell((prevValue) => {
                         return [...prevValue, e.value]
                     });
-
                     setSelectedProduct(null)
                     setVisible(false)
-
                 }} value={options} scrollable scrollHeight="400px" style={{ minWidth: '50rem' }}>
                     <Column field="barcode" header="Barcode"></Column>
                     <Column field="productname" header="Nombre"></Column>
