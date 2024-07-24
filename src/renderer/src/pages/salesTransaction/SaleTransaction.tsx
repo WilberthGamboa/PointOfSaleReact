@@ -27,7 +27,7 @@ export const SaleTransaction = () => {
         //table and search
       }
       <main className='flex flex-row h-screen '>
-        <div className=' flex flex-column bg-bluegray-100 w-9 h-full '>
+        <div className=' flex flex-column bg-blue-50 w-9 h-full '>
           {
             //opciones multiples
 
@@ -45,7 +45,7 @@ export const SaleTransaction = () => {
               <ButtonRemoveRow setproductToSell={setproductToSell} selectedProductsToDelete={selectedProductsToDelete} ></ButtonRemoveRow>
             </div>
           </div>
-          
+
           <DataTableProductsSale selectedProductsGrouped={selectedProductsGrouped} selectedProductsToDelete={selectedProductsToDelete} setSelectedProductsToDelete={setSelectedProductsToDelete} ></DataTableProductsSale>
           <div>
 

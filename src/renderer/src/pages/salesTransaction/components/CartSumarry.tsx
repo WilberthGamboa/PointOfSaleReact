@@ -41,7 +41,7 @@ export const CartSumarry:React.FC<Props> = ({totalPrice,setproductToSell}) => {
     <h2> Total compra: {totalPrice}</h2>
     <InputNumber mode="currency" currency="USD" value={value3} onValueChange={(e: InputNumberValueChangeEvent) => setValue3(Number(e.value))} minFractionDigits={0} maxFractionDigits={5} />
   
-    <Button label="Success" severity="success" onClick={()=>{
+    <Button label="Cobrar" severity="success" onClick={()=>{
         if (value3<totalPrice) {
             showError()
             return;
