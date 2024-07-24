@@ -1,9 +1,10 @@
 
 
 import "primereact/resources/themes/lara-light-cyan/theme.css";
+import "../../../node_modules/primeflex/primeflex.css"
+import "./main.css"
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import "../../../node_modules/primeflex/primeflex.css"
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router/router'
 

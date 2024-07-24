@@ -12,8 +12,8 @@ export const DataTableProductsSale: React.FC<Props> = ({ selectedProductsGrouped
 
     return (
         <>
-
-            <DataTable selectionMode={'multiple'} value={selectedProductsGrouped} scrollable scrollHeight="400px" style={{ minWidth: '50rem' }} onSelectionChange={(e) => {
+            
+            <DataTable  className='m-6 p-5 surface-0 border-round shadow-5 ' selectionMode={'multiple'} value={selectedProductsGrouped} scrollable   onSelectionChange={(e) => {
                 setSelectedProductsToDelete(e.value)
             }} selection={selectedProductsToDelete!} >
                 <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
@@ -24,6 +24,9 @@ export const DataTableProductsSale: React.FC<Props> = ({ selectedProductsGrouped
                 <Column field="category.categoryName" header="Categoria"></Column>
             </DataTable>
 
+
+          
+         
         </>
     )
 }

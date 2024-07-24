@@ -37,6 +37,7 @@ export const CartSumarry:React.FC<Props> = ({totalPrice,setproductToSell}) => {
   return (
     
     <>
+    <div  className='w-2'>
     <h2> Total compra: {totalPrice}</h2>
     <InputNumber mode="currency" currency="USD" value={value3} onValueChange={(e: InputNumberValueChangeEvent) => setValue3(Number(e.value))} minFractionDigits={0} maxFractionDigits={5} />
   
@@ -62,6 +63,9 @@ export const CartSumarry:React.FC<Props> = ({totalPrice,setproductToSell}) => {
                     El cambio es de: {change}
                 </h1>
     </Dialog>
+
+    </div>
+    
     </>
    
   )

@@ -44,10 +44,9 @@ export const SearchProducts: React.FC<Props> = ({setproductToSell}) => {
         {
             // barra de opciones / busqueda
         }
-        <div className='flex'>
-            <label className='mr-2 flex align-items-center' htmlFor="">Barcode / nombre</label>
-            <InputText className='mr-2' value={query} onChange={(e) => setQuery(e.target.value)} />
-            <Button label="Buscar artículo" onClick={searchProduct } />
+        <div className='flex flex-row w-full'>
+            <InputText className='mr-2 w-full ' placeholder='Buscar producto'  value={query} onChange={(e) => setQuery(e.target.value)} />
+            <Button className='' style={{minWidth:"100px"}} label="Buscar" onClick={searchProduct } />
         </div>
 
         {
