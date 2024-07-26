@@ -23,10 +23,6 @@ export const DataTableProductsSale: React.FC<Props> = ({ selectedProductsGrouped
                 <Column field="price" header="Precio"></Column>
                 <Column field="category.categoryName" header="Categoria"></Column>
             </DataTable>
-
-
-          
-         
         </>
     )
 }
