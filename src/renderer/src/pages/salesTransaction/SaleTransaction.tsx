@@ -3,8 +3,8 @@ import { useState } from 'react';
 //interfaces
 import { GroupedProduct, Product } from './interfaces/salesTransaction.interface';
 //components
-import { SearchProducts } from './components/SearchProducts';
-import { DataTableProductsSale } from './components/DataTableProductsSale';
+
+
 import { ButtonRemoveRow } from './components/ButtonRemoveRow';
 
 //hooks
@@ -12,6 +12,8 @@ import { useProductsGroup } from './hooks/useProductsGroup';
 import { useCartSumaryTransaction } from './hooks/useCartSumaryTransaction';
 import { CartSummary } from './components/CartSummary';
 import { SelectMultipleProducts } from './components/SelectMultipleProducts';
+import { SearchProducts } from './components/SearchProducts/SearchProducts';
+import { DataTableProductsSale } from './components/DataTableProductsSale/DataTableProductsSale';
 
 
 //  const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
@@ -38,7 +40,7 @@ export const SaleTransaction = () => {
           }
           <div className=' flex flex-row surface-0 m-6 p-5 border-round shadow-5   justify-content-between align-items-center '>
             <div className='w-5'>
-              <SearchProducts setproductToSell={setproductToSell}></SearchProducts>
+            <SearchProducts setproductToSell={setproductToSell}></SearchProducts>
             </div>
             <div>
               <SelectMultipleProducts></SelectMultipleProducts>

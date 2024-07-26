@@ -1,7 +1,7 @@
 import { Column } from 'primereact/column'
 import { DataTable } from 'primereact/datatable'
-import { GroupedProduct } from '../interfaces/salesTransaction.interface'
 import { Dispatch, SetStateAction } from 'react'
+import { GroupedProduct } from '../../interfaces/salesTransaction.interface'
 
 interface Props {
     selectedProductsGrouped: GroupedProduct[],
@@ -12,7 +12,6 @@ export const DataTableProductsSale: React.FC<Props> = ({ selectedProductsGrouped
 
     return (
         <>
-            
             <DataTable  className='m-6 p-5 surface-0 border-round shadow-5 ' selectionMode={'multiple'} value={selectedProductsGrouped} scrollable   onSelectionChange={(e) => {
                 setSelectedProductsToDelete(e.value)
             }} selection={selectedProductsToDelete!} >

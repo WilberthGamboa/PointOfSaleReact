@@ -2,8 +2,6 @@ import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog';
 import { InputNumber } from 'primereact/inputnumber';
 import { useState } from 'react';
-import { FloatLabel } from 'primereact/floatlabel';
-
 export const SelectMultipleProducts = () => {
     const [visible, setVisible] = useState<boolean>(false);
     const [value2, setValue2] = useState<number>();
