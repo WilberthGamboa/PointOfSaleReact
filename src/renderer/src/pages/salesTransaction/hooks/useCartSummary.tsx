@@ -31,17 +31,6 @@ const useCartSummary = ({ totalPrice, setproductToSell }: UseCartSummaryProps) =
         setproductToSell([]);
     };
 
-    const footerContent = (
-        <div>
-            <Button label="Ok" icon="pi pi-check" onClick={() => setVisible(false)} autoFocus />
-        </div>
-    );
-
-    const headerElement = (
-        <div className="inline-flex align-items-center justify-content-center gap-2">
-            <span className="font-bold white-space-nowrap">Cambio</span>
-        </div>
-    );
 
     return {
         dineroIngresar,
@@ -50,9 +39,7 @@ const useCartSummary = ({ totalPrice, setproductToSell }: UseCartSummaryProps) =
         toast,
         visible,
         setVisible,
-        handleCobrar,
-        footerContent,
-        headerElement
+        handleCobrar
     };
 };
 
