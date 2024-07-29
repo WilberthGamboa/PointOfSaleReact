@@ -17,7 +17,7 @@ Application focused on providing a point of sale solution.
 <img width ="200px"src="./assets/sqlite.png" alt="Descripción de la imagen"/>
 </div>
 
-## State manager
+## State Manager
 <div width ="300px" >
 <img width ="200px"src="./assets/zustand.png" alt="Descripción de la imagen"/>
 </div>
