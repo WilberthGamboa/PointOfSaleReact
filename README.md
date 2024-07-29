@@ -1,6 +1,29 @@
-# pointofsalereact
+# PointOfSaleReact
+Application focused on providing a point of sale solution.
 
-An Electron application with React and TypeScript
+# Developed In
+
+## Frameworks
+
+<div width ="300px" >
+<img width ="100px"src="./assets/electron.png" alt="Descripción de la imagen"/>
+</div>
+<div width ="300px" >
+<img width ="100px"src="./assets/react.webp" alt="Descripción de la imagen"/>
+</div>
+
+## DB
+<div width ="300px" >
+<img width ="200px"src="./assets/sqlite.png" alt="Descripción de la imagen"/>
+</div>
+
+## State manager
+<div width ="300px" >
+<img width ="200px"src="./assets/zustand.png" alt="Descripción de la imagen"/>
+</div>
+
+
+
 
 ## Recommended IDE Setup
 
