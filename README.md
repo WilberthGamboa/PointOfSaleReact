@@ -3,7 +3,7 @@ Application focused on providing a point of sale solution.
 
 # Developed In
 
-## Frameworks
+## Frameworks / Libraries
 
 <div width ="300px" >
 <img width ="100px"src="./assets/electron.png" alt="Descripción de la imagen"/>
