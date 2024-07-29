@@ -6,11 +6,9 @@ interface ProductOptionState {
     setProductOptions:(product:Product[]) => void
 }
 
-export const useProductOptionStore = create<ProductOptionState>()((set,get) => ({
+export const useProductOptionStore = create<ProductOptionState>()((set) => ({
     productsOptions:[],
     setProductOptions: (product:Product[])  => {
         set({productsOptions:product})
     }
-
-    
   }))

@@ -8,12 +8,13 @@ import { GroupedProduct, Product } from './interfaces/salesTransaction.interface
 import { ButtonRemoveRow } from './components/ButtonRemoveRow';
 
 //hooks
-import { useProductsGroup } from './hooks/useProductsGroup';
+
 import { useCartSumaryTransaction } from './hooks/useCartSumaryTransaction';
-import { CartSummary } from './components/CartSummary';
+
 import { SelectMultipleProducts } from './components/SelectMultipleProducts';
 import { SearchProducts } from './components/SearchProducts/SearchProducts';
 import { DataTableProductsSale } from './components/DataTableProductsSale/DataTableProductsSale';
+import { CartSummary } from './components/CartSummary/CartSummary';
 
 
 //  const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
@@ -23,7 +24,7 @@ export const SaleTransaction = () => {
   // Productos agrupados a borrar de la tabla 
   const [selectedProductsToDelete, setSelectedProductsToDelete] = useState<GroupedProduct[]>([]);
   //custom hook agrupar products
-  const { selectedProductsGrouped } = useProductsGroup(productsToSell)
+
   const { totalPrice } = useCartSumaryTransaction(productsToSell)
 
 
@@ -44,11 +45,11 @@ export const SaleTransaction = () => {
             </div>
             <div>
               <SelectMultipleProducts></SelectMultipleProducts>
-              <ButtonRemoveRow setproductToSell={setproductToSell} selectedProductsToDelete={selectedProductsToDelete} ></ButtonRemoveRow>
+              <ButtonRemoveRow ></ButtonRemoveRow>
             </div>
           </div>
 
-          <DataTableProductsSale selectedProductsGrouped={selectedProductsGrouped} selectedProductsToDelete={selectedProductsToDelete} setSelectedProductsToDelete={setSelectedProductsToDelete} ></DataTableProductsSale>
+          <DataTableProductsSale></DataTableProductsSale>
           <div>
 
           </div>
@@ -58,7 +59,7 @@ export const SaleTransaction = () => {
           // barra derecha cobro
         }
         
-         <CartSummary  totalPrice={totalPrice} setproductToSell={setproductToSell} ></CartSummary>    
+         <CartSummary></CartSummary>  
 
       </main>
 

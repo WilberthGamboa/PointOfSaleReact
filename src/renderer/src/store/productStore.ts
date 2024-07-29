@@ -3,7 +3,8 @@ import { create } from 'zustand'
 
 interface ProductState {
     products:GroupedProduct[]
-    incrementProducts:(product:Product) => void
+    incrementProducts:(product:Product) => void,
+    decrementProducts:(productsSelected:GroupedProduct[]) => void
 }
 
 export const useProductStore = create<ProductState>()((set,get) => ({
@@ -21,7 +22,19 @@ export const useProductStore = create<ProductState>()((set,get) => ({
         
         set({products:productsClone})
         
+    },
+    decrementProducts:(productsSelected:GroupedProduct[]) =>{
+        const {products} = get()
+
+        const productsFiltered = products.filter(product => {
+            return !productsSelected.some(productSelected => product === productSelected);
+        })
+        console.log({productsFiltered})
+        set({products:productsFiltered})
+         
     }
+
+    
 
      
 

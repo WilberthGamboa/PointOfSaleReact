@@ -1,21 +1,17 @@
 import { Button } from 'primereact/button'
 import { Dispatch, SetStateAction } from 'react';
 import { Product } from '../interfaces/salesTransaction.interface';
+import { useProductSelected } from '@renderer/store/productSelected';
+import { useProductStore } from '@renderer/store/productStore';
 
-interface Props {
-    selectedProductsToDelete:Product[],
-    setproductToSell:Dispatch<SetStateAction<Product[]>>
-}
-export const ButtonRemoveRow:React.FC<Props> = ({selectedProductsToDelete,setproductToSell}) => {
+
+export const ButtonRemoveRow = () => {
+  const productsSelected = useProductSelected(state=>state.productsSelected)
+  const decrementProducts=useProductStore(state=>state.decrementProducts)
 
   return (
     <Button label="Borrar productos seleccionados" severity="warning" onClick={() => {
-        const barcodes = selectedProductsToDelete.map(item => item.barcode);    
-        setproductToSell((prevValue) => {
-            const x = prevValue.filter(element => !barcodes.includes(element.barcode))
-            return x
-            
-        })
+      decrementProducts(productsSelected)
     }}/>
   )
 }
