@@ -1,15 +1,13 @@
 
+import useSearchProducts from "@renderer/pages/salesTransaction/components/SearchProducts/hooks/useSearchProducts";
 import { Button } from "primereact/button"
 import { InputText } from "primereact/inputtext"
-import { Dispatch, SetStateAction, KeyboardEvent} from "react";
-interface Props {
-  query:string,
-  setQuery:Dispatch<SetStateAction<string>>,
-  onEnter(e: KeyboardEvent<HTMLInputElement>): void,
-  searchProduct: () => Promise<void>
-}
+import { Toast } from "primereact/toast";
 
-export const SearchBar = ({query,setQuery,onEnter,searchProduct}:Props) => {
+
+
+export const SearchBarProducts = () => {
+  const { query, setQuery, toast, onEnter, searchProduct } = useSearchProducts();
   return (
     <>
       <div className='flex flex-row w-full'>
@@ -22,7 +20,7 @@ export const SearchBar = ({query,setQuery,onEnter,searchProduct}:Props) => {
         />
         <Button className='' style={{ minWidth: "100px" }} label="Buscar" onClick={searchProduct} />
       </div>
-
+      <Toast ref={toast} />
     </>
   )
 }

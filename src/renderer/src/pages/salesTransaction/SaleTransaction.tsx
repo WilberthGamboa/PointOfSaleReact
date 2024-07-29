@@ -40,7 +40,7 @@ export const SaleTransaction = () => {
           }
           <div className=' flex flex-row surface-0 m-6 p-5 border-round shadow-5   justify-content-between align-items-center '>
             <div className='w-5'>
-            <SearchProducts setproductToSell={setproductToSell}></SearchProducts>
+            <SearchProducts></SearchProducts>
             </div>
             <div>
               <SelectMultipleProducts></SelectMultipleProducts>
