@@ -1,10 +1,7 @@
-//react
-import { useState } from 'react';
 //prime
 import { Button } from 'primereact/button';
 import { InputNumber, InputNumberValueChangeEvent } from 'primereact/inputnumber'
-//zustand
-
+import { useFormChange } from '../hooks/useFormChange';
 
 interface Props {
 totalPrice:number
@@ -12,25 +9,7 @@ onSubmitData:(test:number) => boolean
 
 }
 export const FormChange = ({totalPrice,onSubmitData}:Props) => {
-  const [value, setValue] = useState(0)
-  //zustand
- 
- 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      // Lógica para manejar la tecla Enter
-      onSubmitData(value)
-      setValue(0)
-    
-        
-    }
-    
-  };
-  const handleClick = (e) => {
-    onSubmitData(value)
-    setValue(0)
-  
-  }
+  const {value, setValue, handleKeyPress, handleClick} =useFormChange(onSubmitData)
   return (
     <>
      <h2> Total compra: {totalPrice}</h2>

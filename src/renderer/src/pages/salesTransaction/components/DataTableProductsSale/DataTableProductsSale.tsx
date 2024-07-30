@@ -8,7 +8,6 @@ import { useProductSelected } from '@renderer/store/productSelected'
 export const DataTableProductsSale = () => {
     //zustand 
     const products = useProductStore(state => state.products)
-    
     const setProductOptions = useProductSelected(state=>state.setProductOptions)
     const productsSelected = useProductSelected(state=>state.productsSelected)
     return (

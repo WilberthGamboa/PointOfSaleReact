@@ -6,6 +6,7 @@ import icon from '../../resources/icon.png?asset'
 
 import { AppDataSource, initializeDatabase } from "./db/dbconnection";
 import { ProductService } from "./salesTransaction/services/Products.service";
+import { SaleService } from "./salesTransaction/services/Sale.service";
 
 function createWindow(): void {
 
@@ -48,6 +49,7 @@ app.whenReady().then( async () => {
   await initializeDatabase()
   //instance class
   const productService = new ProductService()
+  const saleService = new SaleService()
   
 
 
@@ -66,6 +68,9 @@ app.whenReady().then( async () => {
   ipcMain.handle('getProductByCodeBar',async (e,id) =>{
   return  await  productService.getProduct(id)
   } )
+  ipcMain.handle('setSale',async (e,id) =>{
+    return  await  saleService.setSale(id)
+    } )
   createWindow()
 
   app.on('activate', function () {
