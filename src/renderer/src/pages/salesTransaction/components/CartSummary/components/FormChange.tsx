@@ -1,46 +1,51 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+//react
+import { useState } from 'react';
+//prime
 import { Button } from 'primereact/button';
 import { InputNumber, InputNumberValueChangeEvent } from 'primereact/inputnumber'
-import { useProductStore } from '@renderer/store/productStore';
+//zustand
 
 
+interface Props {
+totalPrice:number
+onSubmitData:(test:number) => boolean
 
-
-
-export const FormChange = () => {
- const products =useProductStore(state=>state.products)
-  const [totalPrice, settotalPrice] = useState(0)
-  useEffect(() => {
-    if (products.length === 0) {
-      settotalPrice(0)
-      return;
-    }
-
-    let summary = 0;
-    for (const product of products) {
-      summary = summary + (Number(product.price)* product.count)
-    }
-    console.log({ summary })
-    settotalPrice(summary)
-
-  
+}
+export const FormChange = ({totalPrice,onSubmitData}:Props) => {
+  const [value, setValue] = useState(0)
+  //zustand
+ 
+ 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      // Lógica para manejar la tecla Enter
+      onSubmitData(value)
+      setValue(0)
     
-  }, [products])
+        
+    }
+    
+  };
+  const handleClick = (e) => {
+    onSubmitData(value)
+    setValue(0)
   
-
-
+  }
   return (
     <>
      <h2> Total compra: {totalPrice}</h2>
             <InputNumber
                 mode="currency"
                 currency="USD"
-               // value={dineroIngresar}
-                //onValueChange={(e: InputNumberValueChangeEvent) => setDineroIngresar(Number(e.value))}
+               value={value}
+                onValueChange={(e: InputNumberValueChangeEvent) => setValue(Number(e.value))}
+                onKeyUpCapture={handleKeyPress}
                 minFractionDigits={0}
                 maxFractionDigits={5}
+                min={0}
+                max={100000}
             />
-            <Button label="Cobrar" severity="success"  />
+            <Button label="Cobrar" severity="success" onClick={handleClick}  />
     </>
   )
 }

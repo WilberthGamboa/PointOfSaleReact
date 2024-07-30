@@ -5,29 +5,22 @@ import { GroupedProduct, Product } from './interfaces/salesTransaction.interface
 //components
 
 
-import { ButtonRemoveRow } from './components/ButtonRemoveRow';
+import { ButtonRemoveRow } from './components/BtnTools/components/ButtonRemoveRow';
 
 //hooks
 
-import { useCartSumaryTransaction } from './hooks/useCartSumaryTransaction';
 
-import { SelectMultipleProducts } from './components/SelectMultipleProducts';
+
+
 import { SearchProducts } from './components/SearchProducts/SearchProducts';
 import { DataTableProductsSale } from './components/DataTableProductsSale/DataTableProductsSale';
 import { CartSummary } from './components/CartSummary/CartSummary';
+import { BtnTools } from './components/BtnTools/BtnTools';
 
 
 //  const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
 export const SaleTransaction = () => {
-  // Productos sin agrupar
-  const [productsToSell, setproductToSell] = useState<Product[]>([])
-  // Productos agrupados a borrar de la tabla 
-  const [selectedProductsToDelete, setSelectedProductsToDelete] = useState<GroupedProduct[]>([]);
-  //custom hook agrupar products
-
-  const { totalPrice } = useCartSumaryTransaction(productsToSell)
-
-
+  
   return (
     <>
       {
@@ -44,8 +37,7 @@ export const SaleTransaction = () => {
             <SearchProducts></SearchProducts>
             </div>
             <div>
-              <SelectMultipleProducts></SelectMultipleProducts>
-              <ButtonRemoveRow ></ButtonRemoveRow>
+              <BtnTools></BtnTools>
             </div>
           </div>
 

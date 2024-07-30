@@ -12,6 +12,7 @@ import { useProductOptionStore } from '@renderer/store/productOptionStore';
 const useSearchProducts = () => {
     //local state
     const [query, setQuery] = useState<string>('');
+    const [quantity, setQuantity] = useState(1)
     //toast
     const toast = useRef<Toast>(null);
     const show = (detail: string) => {
@@ -19,6 +20,7 @@ const useSearchProducts = () => {
     };
     //zustand
     const incremetProducts = useProductStore(state => state.incrementProducts)
+    const setQuantityZustand = useProductStore(state => state.setQuantity)
     const setProductOptions = useProductOptionStore(state=>state.setProductOptions)
     
 
@@ -48,16 +50,26 @@ const useSearchProducts = () => {
 
     const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
+            setQuantityZustand(quantity)
             searchProduct();
+            setQuantity(1)
         }
     };
+
+    const onClick = (e:any) => {
+        setQuantityZustand(quantity)
+        searchProduct()
+        setQuantity(1)
+    }
 
     return {
         query,
         setQuery,
         toast,
         onEnter,
-        searchProduct
+        onClick,
+        quantity,
+        setQuantity
     };
 };
 

@@ -1,6 +1,4 @@
 import { Button } from 'primereact/button'
-import { Dispatch, SetStateAction } from 'react';
-import { Product } from '../interfaces/salesTransaction.interface';
 import { useProductSelected } from '@renderer/store/productSelected';
 import { useProductStore } from '@renderer/store/productStore';
 
