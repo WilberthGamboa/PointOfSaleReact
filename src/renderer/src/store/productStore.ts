@@ -1,6 +1,6 @@
-import { GroupedProduct, Product } from '@renderer/interfaces/salesTransaction.interface'
-import { create } from 'zustand'
 
+import { create } from 'zustand'
+import { GroupedProduct, Product } from "@renderer/interfaces/dbModels.interfaces"
 interface ProductState {
     products:GroupedProduct[],
     quantity:number,

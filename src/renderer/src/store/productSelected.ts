@@ -1,4 +1,4 @@
-import {  GroupedProduct } from '@renderer/interfaces/salesTransaction.interface'
+import { GroupedProduct } from "@renderer/interfaces/dbModels.interfaces"
 import { create } from 'zustand'
 
 interface ProductOptionState {
