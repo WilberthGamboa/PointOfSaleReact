@@ -1,4 +1,4 @@
-import {  Product } from '@renderer/pages/salesTransaction/interfaces/salesTransaction.interface'
+import {  Product } from '@renderer/interfaces/salesTransaction.interface'
 import { create } from 'zustand'
 
 interface ProductOptionState {

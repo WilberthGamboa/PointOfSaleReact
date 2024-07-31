@@ -1,4 +1,4 @@
-import { GroupedProduct, Product } from '@renderer/pages/salesTransaction/interfaces/salesTransaction.interface'
+import { GroupedProduct, Product } from '@renderer/interfaces/salesTransaction.interface'
 import { create } from 'zustand'
 
 interface ProductState {

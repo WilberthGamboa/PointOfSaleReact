@@ -3,7 +3,7 @@ import { useState, useRef, KeyboardEvent } from 'react';
 //prime
 import { Toast } from 'primereact/toast';
 //interfaces
-import { Product } from '../../../interfaces/salesTransaction.interface';
+import { Product } from '../../../../../interfaces/dbModels.interfaces';
 //zustand store
 import { useProductStore } from '@renderer/store/productStore';
 import { useProductOptionStore } from '@renderer/store/productOptionStore';

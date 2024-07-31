@@ -1,31 +1,35 @@
 //react
-import { useState } from 'react';
+
 //interfaces
-import { GroupedProduct, Product } from './interfaces/salesTransaction.interface';
+
 //components
 
 
-import { ButtonRemoveRow } from './components/BtnTools/components/ButtonRemoveRow';
+
 
 //hooks
 
 
 
-
+import { Menubar } from 'primereact/menubar';
 import { SearchProducts } from './components/SearchProducts/SearchProducts';
 import { DataTableProductsSale } from './components/DataTableProductsSale/DataTableProductsSale';
 import { CartSummary } from './components/CartSummary/CartSummary';
 import { BtnTools } from './components/BtnTools/BtnTools';
+import { MenuItem } from 'primereact/menuitem';
+import { useNavigate } from 'react-router-dom';
+import { NavBar } from '@renderer/components/NavBar';
 
 
 //  const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
 export const SaleTransaction = () => {
-  
+ 
   return (
     <>
       {
         //table and search
       }
+    <NavBar></NavBar>
       <main className='flex flex-row h-screen bg-blue-50  '>
         <div className=' flex flex-column w-9 h-full '>
           {

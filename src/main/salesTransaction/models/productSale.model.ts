@@ -1,14 +1,18 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Sale } from "./sale.model";
+import { Products } from "./products.model";
 
 
 @Entity()
 export class ProductSale {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
-    @ManyToOne(() => Sale, sale => sale.productSale,{ eager: true })
+    @ManyToOne(() => Sale, sale => sale.productSale)
     sale:Sale
+
+    @ManyToOne('Products', 'products', {eager:true} )
+    products:Products
 
     @Column()
     count:number

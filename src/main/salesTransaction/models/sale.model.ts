@@ -7,7 +7,7 @@ export class Sale {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @OneToMany(()=> ProductSale, productSale => productSale.sale )
+    @OneToMany(()=> ProductSale, productSale => productSale.sale,{ eager: true } )
     productSale:ProductSale[]
     
     @CreateDateColumn({ type: 'datetime' }) // Usa 'timestamp' en lugar de 'timestamptz' si no necesitas la zona horaria

@@ -65,6 +65,11 @@ app.whenReady().then( async () => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
+  // 
+  ipcMain.handle('getSale', async() =>  {
+   return await  saleService.getSales()
+  })
+
   ipcMain.handle('getProductByCodeBar',async (e,id) =>{
   return  await  productService.getProduct(id)
   } )
